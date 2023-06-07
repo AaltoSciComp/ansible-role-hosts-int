@@ -4,3 +4,4 @@
 intDomain: 'int'
 siteDomain: 'example.com'
 hosts_int_file_to_populate: '/etc/hosts'
+hosts_include_ipmi: false
