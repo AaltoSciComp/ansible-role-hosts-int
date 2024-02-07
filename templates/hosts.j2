@@ -13,7 +13,7 @@
 # Hosts from ansible hosts file, external ip
 {% for host in groups['all'] | sort %}
 {% if hostvars[host].ext_ip_addr is defined %}
-{{ hostvars[host].ext_ip_addr }} {{ hostvars[host].inventory_hostname_short }}.{{ siteDomain }} {{ hostvars[host].inventory_hostname_short }}
+{{ hostvars[host].ext_ip_addr }} {{ hostvars[host].inventory_hostname_short }}.{{ siteDomain }}
 {% endif %}
 {% endfor %}
 
