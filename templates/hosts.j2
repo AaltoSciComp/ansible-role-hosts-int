@@ -24,11 +24,18 @@
 {% endif %}
 {% endfor %}
 
+# Hosts from ansible hosts file, bmc ip
+{% for host in groups['all'] | sort %}
+{% if hostvars[host].bmc_ip is defined %}
+{{ hostvars[host].bmc_ip }} {{ hostvars[host].inventory_hostname_short }}-ipmi
+{% endif %}
+{% endfor %}
+
 # Hosts from ansible hosts file, ipmi ip
 {%if hosts_include_ipmi %}
 {% for host in groups['all'] | sort %}
 {% if hostvars[host].ipmi_ip is defined %}
-{{ hostvars[host].ipmi_ip }} {{ hostvars[host].inventory_hostname_short }}-ipmi
+{{ hostvars[host].ipmi_ip }} {{ hostvars[host].inventory_hostname_short }}
 {% endif %}
 {% endfor %}
 {% endif %}
